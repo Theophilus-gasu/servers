@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Preparing to deploy SQL to RDS..."
+  build:
+    commands:
+      - echo "Running SQL script..."
+      - /usr/bin/sqlcmd -S $HOST -U $USERNAME -P $PASSWORD -d $DATABASE -i create_tables.sql
